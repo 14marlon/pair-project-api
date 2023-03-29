@@ -14,7 +14,7 @@ fetch('https://fakestoreapi.com/products').then((data)=> {
             <h2 class="product-title">${values.title}</h2>
             <p>${description.length > 50 ? description.substring(0, 50).concat('...more'):description}</p>
             <p class="category">${values.category}</p>
-            <div class="product-price-container d-flex justify-content-between">
+            <div class="product-price-container d-flex justify-content-around">
              <p class="price text-center fs-5 fw-semibold">${values.price}</p>
              
              <a href="#!" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></a></div>

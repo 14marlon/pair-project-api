@@ -4,6 +4,7 @@
     height: 100vh
 }
 .card{
+    margin: 10px;
     width: 35vh;
     height: 70vh;
 }
