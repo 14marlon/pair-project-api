@@ -12,9 +12,12 @@ fetch('https://fakestoreapi.com/products').then((data)=> {
         <div class="card ">
             <div class="product-image-container"><img class="product-image" src="${values.image}" alt="image"></div>
             <h2 class="product-title">${values.title}</h2>
-            <p>${description.length > 80 ? description.substring(0, 80).concat('...more'):description}</p>
+            <p>${description.length > 50 ? description.substring(0, 50).concat('...more'):description}</p>
             <p class="category">${values.category}</p>
-            <p class="price text-center">${values.price}</p>
+            <div class="product-price-container d-flex justify-content-around">
+             <p class="price text-center fs-5 fw-semibold">${values.price}</p>
+             
+             <a href="#!" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></a></div>
         </div>
         `;
     });

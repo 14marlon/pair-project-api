@@ -4,6 +4,7 @@
     height: 100vh
 }
 .card{
+    margin: 10px;
     width: 35vh;
     height: 70vh;
 }
@@ -19,4 +20,20 @@
 .product-image {
     height: 100%;
     width: 100%;
+}
+
+.add-to-cart {
+    background: rgb(203, 178, 38);
+    width: 4rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: white;
+    border-radius: 1rem;
+}
+
+.add-to-cart ion-icon {
+    font-size: 1.5rem;
 }
