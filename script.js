@@ -77,7 +77,7 @@ function displaycart() {
         total += parseInt(data.price * data.quantity + shippingFee);
     return (
             `<div class="cart-item">
-                <input type="checkbox" id="checkbox">
+                <input type="checkbox" class="checkbox" data-index="${index}">
                 <div class='row-img'>
                     <img class="product-image rowimg" src="${data.image}" alt="image">
                 </div>
@@ -86,10 +86,7 @@ function displaycart() {
                 <input class="cart-quantity-input" type="number" value="${data.quantity}" min="1" data-index="${index}">
                 <i class='fa-solid fa-trash' onclick='delElement(${index})'></i>
             </div>
-            <div class="d-flex justify-content-between">
-                <h4>Shipping Fee</h4>
-                <h2 id="shippingFee">$ 10.00</h2>
-            </div>
+            
             `);
         }
         j++;
@@ -115,16 +112,26 @@ let quantityInputs = document.querySelectorAll(".cart-quantity-input");
 
 
 //purchase button
-let purchaseButton = document.getElementById('purchase-button');
-purchaseButton.addEventListener('click', sendEmail);
+const purchaseButton = document.getElementById('purchase-button');
+purchaseButton.addEventListener('click', purchaseItems);
 
-function sendEmail() {
-    let email = {
-        reccipient: 'aragonmarlon1@gmail.com',
-        subject: 'Thank you for your purchase!',
-        message: 'Your order has been received and is being processed.'
-    };
-    window.location.href = 'mailto:' + email.recipient + '?subject=' + email.subject + '&body=' + email.message;
+function purchaseItems() {
+    const cart = document.getElementById('cart');
+    const data = cart.querySelectorAll('.cartItem');
+    const checkedItems = [];
+
+    for(let i = 0; i < data.length; i++) {
+        const item = data[i];
+        const checkbox = data.querySelector('.checkbox');
+
+        if (checkbox.checked) {
+            checkedItems.push(index);
+        }
+    }
+    checkedItems.forEach(index => data.remove());
+    alert('Thank you for your purchase');
 }
+
+
 
 displaycart();
