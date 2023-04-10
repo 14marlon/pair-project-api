@@ -49,7 +49,7 @@ function addtocart(id) {
     let total = cart.reduce((acc, item) => {
         return acc + item.price * item.quantity;
     }, 0);
-    document.getElementById("total").innerHTML = "$ " + total.toFixed();
+    document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
   }
 
   // delete element
@@ -62,7 +62,7 @@ function delElement(index) {
         let total = cart.reduce((acc, item) => {
         return acc + item.price;
         }, 0);
-        document.getElementById("total").innerHTML = "$ " + total.toFixed();
+        document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
     }
 
 function displaycart() {
@@ -93,7 +93,7 @@ function displaycart() {
         j++;
 }).join('');
     localStorage.setItem('cart', JSON.stringify(cart));
-    document.getElementById("total").innerHTML = "$ " + total.toFixed();
+    document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
   }
 
   // quantity inputs check if input is a valid or not negative
