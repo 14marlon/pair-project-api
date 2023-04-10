@@ -15,27 +15,27 @@
 <div class="background container-fluid my">
     <header>
         <div class="container-fluid header">
-            <div class ="logo"> <img class="logo-image" src="./images/metro-shopping-logo2.png"></div>
+            <div class ="logo"> <img class="logo-image" src="images/metro-shopping-logo2.png"></div>
             <!-- <div><h1 class="login-text">Login Page</h1></div> -->
         </div>
     </header>
    
         <!-- LOGIN SECTION -->
-        <div class="login-register-container d-flex">
-            <div class="headline-banner"><h2 class="headline-text">Welcome to Your Online Shopping Paradise - Discover a World of Endless Possibilities and Unbeatable Deals!</h2></div>
-            <div>
-                <div class="container login-container text-center page " id="login">
-                    <p class="mt-3">Not yet registered? <a onclick="navigate('register')" id="signup">Sign up</a></p>
-                    <div class="form-floating mb-3">
-                        <input type="email" name="email-address" id="floatingInput" class="form-control" placeholder="name@example.com" required>
-                        <label for="floatingInput">Email</label>
+        <div class="login-register-container d-flex container">
+                <div class="col-sm-12 headline-banner"><h2 class="headline-text">Welcome to Your Online Shopping Paradise - Discover a World of Endless Possibilities and Unbeatable Deals!</h2></div>
+            <div class="row">
+                <div class="col-sm-12 login-container text-center page " id="login">
+                        <p class="mt-3">Not yet registered? <a onclick="navigate('register')" id="signup">Sign up</a></p>
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email-address" id="floatingInput" class="form-control" placeholder="name@example.com" required>
+                            <label for="floatingInput">Email</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control " id="floatingPassword" placeholder="Password" required>
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <div class="d-flex justify-content-center"><button type="submit" value="Login" class="login-register-button mt-3" name="login" id="login">Login</button></a></div>
                     </div>
-                    <div class="form-floating">
-                        <input type="password" class="form-control " id="floatingPassword" placeholder="Password" required>
-                        <label for="floatingPassword">Password</label>
-                    </div>
-                    <div class="d-flex justify-content-center"><button type="submit" value="Login" class="login-register-button mt-3" name="login" id="login">Login</button></a></div>
-                </div>
                 <!-- REGISTER SECTION -->
                 <div class="register-container hidden page" id="register" >
                     <div class="text-center "><a onclick="navigate('login')" class="link-primary text-center">Go to login page</a></div>

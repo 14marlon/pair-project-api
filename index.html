@@ -26,19 +26,19 @@
 
 <body>
     <div class="container">
-        <!-- <div class="row"> -->
+        <div class="row">
             <div class="col-12 header">
-                <div class="logo"><img class="logo-image" src="./images/metro-shopping-logo.png"></div>
+                <div class="logo"><img class="logo-image" src="images/metro-shopping-logo.png"></div>
                 <div class="login-add-to-cart-container">
                     <div><a href="login.html" class="login-link">Login</a></div>
-                    <div class="cart"><a href="#cart" id="home"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <div class="cart"><a href="#cart"><i class="fa-solid fa-cart-shopping"></i></a>
                         <p id="count">0</p>
                     </div>
                 </div>
             </div>
-        <!-- </div> -->
+        </div>
         <div class="banner">
-        <h1 class="heading text-center text-uppercase">Metro Shopping</h1>
+            
         </div>
         <div class="row">
             <div class="col-12">
@@ -48,25 +48,25 @@
             </div>
         </div>
     </div>
-        <div class="container">
+        <div class="container cart-section">
             <div class="row">
                 <div class="col cart-container" id="cart">
                     <div id="root"></div>
                     <div class="sidebar">
                         <div class="head">
                             <p>My Cart</p>
-                            <a href="#home" onclick="navigate('home')"><i class="fa-solid fa-store"></i></a>
+                            <a href="#home"><i class="fa-solid fa-store"></i></a>
                         </div>
                         <div id="cartItem">Your cart is empty</div>
                         <div class="d-flex justify-content-between">
                             <h4>Shipping Fee</h4>
-                            <h2 id="shippingFee">$ 10.00</h2>
+                            <h2 id="shippingFee">$ 2.00</h2>
                         </div>
                         <div class="foot">
                             <h3>Total</h3>
                             <h2 id="total">$ 0.00</h2>
                         </div>
-                        <button class="btn btn-warning btn-sm" id="purchase-button">Place Order</button>
+                        <button class="btn btn-warning btn-sm" id="purchaseButton">Place Order</button>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ fetch('https://fakestoreapi.com/products').then((data)=> {
         completedata.map((values, i)=> {
             let description = values.description;
             data1+=`
-            <div class="card">
+            <div class="card mt-5">
                 <div class="product-image-container">
                 <img class="product-image cart-item-image" src="${values.image}" width="100" height="100"" alt="image">
                 </div>
@@ -39,6 +39,7 @@ function addtocart(id) {
     } else {
         selectedProduct.quantity = 1;
         cart.push(selectedProduct);
+        alert('new item will be added to cart');
     }
     //cart.push({...selectedProduct});
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -65,7 +66,7 @@ function delElement(index) {
     }
 
 function displaycart() {
-    let j = 0, total=0, shippingFee=4; 
+    let j = 0, total=0, shippingFee=2; 
     document.getElementById("count").innerHTML = cart.length;
     if (cart.length == 0) {
         document.getElementById("cartItem").innerHTML = "Your cart is empty";
@@ -76,7 +77,7 @@ function displaycart() {
         let {image, title, price, input} = data;
         total += parseInt(data.price * data.quantity + shippingFee);
     return (
-            `<div class="cart-item">
+            `<div class="cart-item checked">
                 <input type="checkbox" class="checkbox" data-index="${index}">
                 <div class='row-img'>
                     <img class="product-image rowimg" src="${data.image}" alt="image">
@@ -99,8 +100,8 @@ function displaycart() {
 let quantityInputs = document.querySelectorAll(".cart-quantity-input");
     quantityInputs.forEach(input => {
     input.addEventListener("change", (event) => {
-        let quantity = parseInt(event.target.value); //value
-        let index = parseInt(event.target.dataset.index); //index
+        let quantity = parseInt(event.target.value);
+        let index = parseInt(event.target.dataset.index);
         if (quantity > 0) {
             cart[index].quantity = quantity;
             localStorage.setItem('cart', JSON.stringify(cart));
@@ -110,28 +111,23 @@ let quantityInputs = document.querySelectorAll(".cart-quantity-input");
 });
 }
 
-
-//purchase button
-const purchaseButton = document.getElementById('purchase-button');
-purchaseButton.addEventListener('click', purchaseItems);
-
-function purchaseItems() {
-    const cart = document.getElementById('cart');
-    const data = cart.querySelectorAll('.cartItem');
-    const checkedItems = [];
-
-    for(let i = 0; i < data.length; i++) {
-        const item = data[i];
-        const checkbox = data.querySelector('.checkbox');
-
-        if (checkbox.checked) {
-            checkedItems.push(index);
-        }
+// delete the checked item when the purchase button is clicked
+document.getElementById("purchaseButton").addEventListener("click", function() {
+    var checkedItems = document.querySelectorAll(".cart-item input:checked");
+    for (var i = 0; i < checkedItems.length; i++) {
+        checkedItems[i].parentNode.remove();
+        alert('Your order is received and being process');
     }
-    checkedItems.forEach(index => data.remove());
-    alert('Thank you for your purchase');
-}
+});
 
+// display cart section when the cart icon is clicked
+document.querySelector('.fa-cart-shopping').addEventListener('click', () => {
+  document.querySelector('.cart-section').style.display = 'block';
+});
 
+// hide the cart section when the store icon is clicked
+document.querySelector('.fa-store').addEventListener('click', () => {
+  document.querySelector('.cart-section').style.display = 'none';
+});
 
 displaycart();

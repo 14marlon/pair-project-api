@@ -87,10 +87,15 @@
 .banner{
     background-image: url(./images/banner-image-2.jpg);
     height: 30vh;
-    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* cart section */
+.cart-section {
+  display: none;
+  width: 95%;
+}
 .cart {
     display: flex;
     background-color: white;
