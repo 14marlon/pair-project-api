@@ -152,6 +152,7 @@ a{
 .logo{
     height: 100%;
     width:30vh;
+
 }
 .logo-image{
     width:30vh;
@@ -406,6 +407,6 @@ a{
     }
 }
 .logo-image{
-    width:30vw;
+    width:25vh;
     height: 100%;
 }
