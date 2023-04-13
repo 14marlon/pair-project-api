@@ -1,8 +1,8 @@
 function validateForm() {
     let hasError = false;
     //RESET ERROR
-    const formErrors= document.getElementsByClassName('form-error');
-    for(let fe of formErrors) {
+    const formErrors = document.getElementsByClassName('form-error');
+    for (let fe of formErrors) {
         fe.textContent = '';
         fe.classList.add('d-none');
     }
@@ -43,7 +43,7 @@ function validateForm() {
         firstNameError.textContent = 'First name is required';
         hasError = true;
     }
-        const lastNameInput = document.getElementById('lname');
+    const lastNameInput = document.getElementById('lname');
     if (lastNameInput.value === '') {
         const lastNameError = document.getElementById('last-name-error');
         lastNameError.classList.remove('d-none');
@@ -61,13 +61,13 @@ function validateForm() {
     }
     const terms = document.getElementById('terms');
     const termsError = document.getElementById('terms-error');
-    if (!terms.checked ) {
+    if (!terms.checked) {
         termsError.textContent = 'Please agree to the terms and conditions'
         termsError.classList.remove('d-none');
         hasError = true;
-       }
-    
-       if (!hasError) {
+    }
+
+    if (!hasError) {
         signUp(event);
     } else {
         window.scrollTo(0, 0);
@@ -76,63 +76,63 @@ function validateForm() {
 }
 function alertSuccess() {
     alert('Successfully registered!');
-    }
+}
 
 //FORM VALIDATION LOGIN PAGE
-function valicateLogin(){
+function valicateLogin() {
 
 }
 
 const signUp = e => {
-let fname = document.getElementById('fname').value,
-lname = document.getElementById('lname').value,
-email = document.getElementById('email').value,
-pwd = document.getElementById('pwd').value;
+    let fname = document.getElementById('fname').value,
+        lname = document.getElementById('lname').value,
+        email = document.getElementById('email').value,
+        pwd = document.getElementById('pwd').value;
 
-let formData = JSON.parse(localStorage.getItem('formData')) || [];
+    let formData = JSON.parse(localStorage.getItem('formData')) || [];
 
-let exist = formData.length && 
-JSON.parse(localStorage.getItem('formData')).some(data => 
-    data.fname.toLowerCase() == fname.toLowerCase() && 
-    data.lname.toLowerCase() == lname.toLowerCase()
-);
+    let exist = formData.length &&
+        JSON.parse(localStorage.getItem('formData')).some(data =>
+            data.fname.toLowerCase() == fname.toLowerCase() &&
+            data.lname.toLowerCase() == lname.toLowerCase()
+        );
 
-if(!exist){
-formData.push({ fname, lname, email, pwd });
-localStorage.setItem('formData', JSON.stringify(formData));
-document.querySelector('form').reset();
-document.getElementById('fname').focus();
-alert("Account Created.\n\nPlease Sign In using the link below.");
-location.href = "login.html"
-}
-else{
-alert("Ooopppssss... Duplicate found!!!\nYou have already sigjned up");
-}
-e.preventDefault();
+    if (!exist) {
+        formData.push({ fname, lname, email, pwd });
+        localStorage.setItem('formData', JSON.stringify(formData));
+        document.querySelector('form').reset();
+        document.getElementById('fname').focus();
+        alert("Account Created.\n\nPlease Sign In using the link below.");
+        location.href = "login.html"
+    }
+    else {
+        alert("Ooopppssss... Duplicate found!!!\nYou have already sigjned up");
+    }
+    e.preventDefault();
 }
 // function updateContent(name){
 //         let welcome=getElementById('brand');
 //         welcome.textcontent="hello";
 // }
 function signIn(e) {
-// let welcome=getElementById('brand');
-let email = document.getElementById('email').value, pwd = document.getElementById('pwd').value;
-let formData = JSON.parse(localStorage.getItem('formData')) || [];
-let exist = formData.length && 
-JSON.parse(localStorage.getItem('formData')).some(data => data.email.toLowerCase() == email && data.pwd.toLowerCase() == pwd);
+    // let welcome=getElementById('brand');
+    let email = document.getElementById('email').value, pwd = document.getElementById('pwd').value;
+    let formData = JSON.parse(localStorage.getItem('formData')) || [];
+    let exist = formData.length &&
+        JSON.parse(localStorage.getItem('formData')).some(data => data.email.toLowerCase() == email && data.pwd.toLowerCase() == pwd);
 
-if(!exist){
-alert("Incorrect login credentials");
+    if (!exist) {
+        alert("Incorrect login credentials");
 
-}
-else{
-location.href = "index.html";
-// loggedin=true;
-// return true;
+    }
+    else {
+        location.href = "index.html";
+        // loggedin=true;
+        // return true;
 
-}
+    }
 
-e.preventDefault();
+    e.preventDefault();
 }
 
 let formData = JSON.parse(localStorage.getItem('formData'))
@@ -141,22 +141,22 @@ console.log(formData)
 //fakestore fetch
 
 let allproducts = [];
-fetch('https://fakestoreapi.com/products').then((data)=> {
+fetch('https://fakestoreapi.com/products').then((data) => {
     return data.json();
-    }).then((completedata)=> {
+}).then((completedata) => {
     allproducts = completedata;
-        let data1="";
-        completedata.map((values, i)=> {
-            let description = values.description;
-            let cardTitle= values.title;
-            data1+=`
+    let data1 = "";
+    completedata.map((values, i) => {
+        let description = values.description;
+        let cardTitle = values.title;
+        data1 += `
             <div class="card mt-3 id="card-id mx-auto">
                 <div class="product-image-container">
                     <img class="product-image cart-item-image" src="${values.image}"  alt="image">
                 </div>
                 <div class="title-description d-flex flex-column">
-                    <a href="productpage.html?title=${values.title}&description=${values.description}&image=${values.image}&category=${values.category}&price=${values.price}&rating=${values.rating.rate}&count=${values.rating.count}&id=${values.id}&" target="_blank"><p class="product-title">${cardTitle.length > 30 ? cardTitle.substring(0, 30).concat('...'):cardTitle}</p></a>
-                    <p class = "product-description">${description.length > 30 ? description.substring(0, 30).concat('...'):description}</p>
+                    <a href="productpage.html?title=${values.title}&description=${values.description}&image=${values.image}&category=${values.category}&price=${values.price}&rating=${values.rating.rate}&count=${values.rating.count}&id=${values.id}&" target="_blank"><p class="product-title">${cardTitle.length > 30 ? cardTitle.substring(0, 30).concat('...') : cardTitle}</p></a>
+                    <p class = "product-description">${description.length > 30 ? description.substring(0, 30).concat('...') : description}</p>
                     <p class="category">${values.category}</p>
                     
                 </div> 
@@ -166,12 +166,12 @@ fetch('https://fakestoreapi.com/products').then((data)=> {
                 </div>
             </div>
                 `;
-            });
+    });
 
-        document.getElementById("cards").innerHTML=data1;
-    }).catch((err)=> {
-        console.log(err);
-    })
+    document.getElementById("cards").innerHTML = data1;
+}).catch((err) => {
+    console.log(err);
+})
 
 cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -196,34 +196,34 @@ function addtocart(id) {
         return acc + item.price * item.quantity;
     }, 0);
     document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
-  }
+}
 
-  // delete element
+// delete element
 function delElement(index) {
-        cart.splice(index, 1);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        displaycart();
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displaycart();
 
-        // update total
-        let total = cart.reduce((acc, item) => {
+    // update total
+    let total = cart.reduce((acc, item) => {
         return acc + item.price;
-        }, 0);
-        document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
-    }
+    }, 0);
+    document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
+}
 
 function displaycart() {
-    let j = 0, total=0, shippingFee=2; 
+    let j = 0, total = 0, shippingFee = 2;
     document.getElementById("count").innerHTML = cart.length;
     if (cart.length == 0) {
         document.getElementById("cartItem").innerHTML = "Your cart is empty";
         document.getElementById("total").innerHTML = "$ 0.00";
     } else {
-        document.getElementById("cartItem").innerHTML = cart.map((data, index)=> {
-    if (data) {
-        let {image, title, price, input} = data;
-        total += parseInt(data.price * data.quantity + shippingFee);
-    return (
-            `<div class="cart-item checked">
+        document.getElementById("cartItem").innerHTML = cart.map((data, index) => {
+            if (data) {
+                let { image, title, price, input } = data;
+                total += parseInt(data.price * data.quantity + shippingFee);
+                return (
+                    `<div class="cart-item checked">
                 <input type="checkbox" class="checkbox" data-index="${index}">
                 <div class='row-img width:20%;'>
                     <img class="product-image rowimg" src="${data.image}" alt="image">
@@ -235,48 +235,48 @@ function displaycart() {
             </div>
             
             `);
-        }
-        j++;
-}).join('');
-    localStorage.setItem('cart', JSON.stringify(cart));
-    document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
-  }
+            }
+            j++;
+        }).join('');
+        localStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
+    }
 
-  // quantity inputs check if input is a valid or not negative
-let quantityInputs = document.querySelectorAll(".cart-quantity-input");
+    // quantity inputs check if input is a valid or not negative
+    let quantityInputs = document.querySelectorAll(".cart-quantity-input");
     quantityInputs.forEach(input => {
-    input.addEventListener("change", (event) => {
-        let quantity = parseInt(event.target.value);
-        let index = parseInt(event.target.dataset.index);
-        if (quantity > 0) {
-            cart[index].quantity = quantity;
-            localStorage.setItem('cart', JSON.stringify(cart));
-            displaycart();
-        }
+        input.addEventListener("change", (event) => {
+            let quantity = parseInt(event.target.value);
+            let index = parseInt(event.target.dataset.index);
+            if (quantity > 0) {
+                cart[index].quantity = quantity;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displaycart();
+            }
+        });
     });
-});
 }
 // let loggedin="";
 // delete the checked item when the purchase button is clicked
-document.getElementById("purchaseButton").addEventListener("click", function() {
+document.getElementById("purchaseButton").addEventListener("click", function () {
     // if (!loggedin){
     //     alert("you are not logged in");
     // }else{
     var checkedItems = document.querySelectorAll(".cart-item input:checked");
     for (var i = 0; i < checkedItems.length; i++) {
         checkedItems[i].parentNode.remove();
-        
-    }alert('Your order is received and being process');
+        alert('Your order is received and being process');
+    }
 });
 
 // display cart section when the cart icon is clicked
 document.querySelector('.fa-cart-shopping').addEventListener('click', () => {
-  document.querySelector('.cart-section').style.display = 'block';
+    document.querySelector('.cart-section').style.display = 'block';
 });
 
 // hide the cart section when the store icon is clicked
 document.querySelector('.fa-store').addEventListener('click', () => {
-  document.querySelector('.cart-section').style.display = 'none';
+    document.querySelector('.cart-section').style.display = 'none';
 });
 
 displaycart();
@@ -298,8 +298,8 @@ const productID = urlParams.get('id');
 console.log(productID)
 
 let productTitle = document.getElementById('product-title');
-let productDescription =  document.getElementById('product-description');
-let productImage =  document.getElementById('product-image');
+let productDescription = document.getElementById('product-description');
+let productImage = document.getElementById('product-image');
 let productRating = document.getElementById('rating');
 let productCategory = document.getElementById('category');
 let productPrice = document.getElementById('price');
@@ -308,28 +308,28 @@ let productPrice = document.getElementById('price');
 
 productTitle.innerHTML = title;
 productDescription.innerHTML = description;
-productImage.src=image;
-productRating.innerHTML = count +" "+ "ratings";
+productImage.src = image;
+productRating.innerHTML = count + " " + "ratings";
 productCategory.innerHTML = category;
-productPrice.innerHTML = "$"+price;
+productPrice.innerHTML = "$" + price;
 //star ratings
 document.getElementById("stars").innerHTML = getStars(rating);
 function getStars(rating) {
-    
-// Round to nearest half
-rating = Math.round(rating * 2) / 2;
-let output = [];
-    let i=0;
-// Append all the filled whole stars
-for (let i = rating; i >= 1; i--)
-    output.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
-// If there is a half a star, append it
-if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+    // Round to nearest half
+    rating = Math.round(rating * 2) / 2;
+    let output = [];
+    let i = 0;
+    // Append all the filled whole stars
+    for (let i = rating; i >= 1; i--)
+        output.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
-// Fill the empty stars
-for (let i = (5 - rating); i >= 1; i--)
-    output.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gray;"></i>&nbsp;');
+    // If there is a half a star, append it
+    if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
-return output.join('');
+    // Fill the empty stars
+    for (let i = (5 - rating); i >= 1; i--)
+        output.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gray;"></i>&nbsp;');
+
+    return output.join('');
 }
