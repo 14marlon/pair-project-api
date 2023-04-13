@@ -185,7 +185,6 @@ function addtocart(id) {
     } else {
         selectedProduct.quantity = 1;
         cart.push(selectedProduct);
-        alert('new item will be added to cart');
     }
     //cart.push({...selectedProduct});
     localStorage.setItem('cart', JSON.stringify(cart));
