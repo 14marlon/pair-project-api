@@ -1,33 +1,70 @@
 /* @import url('https://fonts.cdnfonts.com/css/bauhaus-modern'); */
 
-
 body{
     margin: 0px;
     padding: 0px;
-    font-family: sans-serif;
+    font-family: "Lato", Arial, sans-serif;
 }
 
+.link-text{
+    text-decoration: none;
+    color: #000000;
+}
+
+.link-text:hover{
+    text-decoration: underline;
+    font-weight: bold;
+    color: #000000;
+}
+.nav-link{
+    text-decoration: none;
+    color: #67696f;
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 50%;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+.nav-link:hover{
+    color: #000000;
+    text-shadow: 1px 1px 1px rgb(139, 139, 139);
+}
 .hidden{
     display: none;
 }
 
 .login-register-container{
-    height: 70vh;
+    height: 73vh;
+    display: flex;
+    justify-content: center;
+    min-width: 350px;
+ 
 }
 .login-container{
-    padding-top: 10px;
-    width: 50vh;
-    margin-left: 60%;
+    min-width: 350px;
     height: 30vh;
-    margin-top: 40%;
     background-color: rgb(255, 255, 255, .5);
     border-radius: 10px;
+    padding: 10px 30px;
     /* border: 2px solid rgb(255, 255, 255); */
 }
+.register{
+    min-width: 300px;
+}
+.form-error{
+    font-size: .5;
+}
+
 .register-container{
-    width: 60vh;
-    margin-left: 60%;
+
     background-color: rgb(255, 255, 255, .5);
+    min-width: 350px;
+    border-radius: 10px;
+    padding: 10px 30px;
+    
 }
 .header {
     margin-left: 0%;
@@ -59,12 +96,14 @@ text-shadow: 1px 1px 1px black;
     width: 100%;
     background-position-y: 20%;
     height: 100vh;
+
     
 }
 .headline-banner{
     width: 50%;
     display: flex;
     align-items: center;
+    min-width: 350px;
 }
 .headline-text{
     vertical-align: center;
@@ -73,14 +112,15 @@ text-shadow: 1px 1px 1px black;
     margin-left: 10%;
 }
 .footer{
-    display: flex;
-    justify-content: space-evenly;
+    /* display: flex;
+    justify-content: space-evenly; */
     color: white;
     text-shadow: 1px 1px 1px black;
     background-color: rgb(8, 8, 8, .5);
-    height: 23vh;
+    /* height: 23vh; */
     padding-top: 15px;
     margin: 0;
+    width: 100%;
      
 }
 
@@ -89,6 +129,9 @@ text-shadow: 1px 1px 1px black;
     color: white;
     text-shadow: 1px 1px 1px black;
     
+}
+.footer a:hover{
+    text-decoration: underline;
 }
 
 .footer-logo-img{
@@ -99,16 +142,34 @@ text-shadow: 1px 1px 1px black;
 }
 
 .about{
-    width: 30vh;
+    font-size: .8rem;
 }
 
 .login-register-button{
-    background-color: #f68c45;
+    background-color: #ffc126;
     border: none;
     border-radius: 10%;
-    font-size: 1.5rem;
-    padding: 10px 30px;
+    font-size: 1.2rem;
+    padding: 8px 30px;
 }
-.login-register-button :hover{
-    border: 2px solid #000000;
+.login-register-button:hover{
+    background-color: #8d8e8f;
+}
+@media screen 
+  and (max-width: 540px) {
+    .headline-banner{
+        display: none;
+    }
+    .login-register-container{
+        height: 110vh;
+    }
+    .login-container{
+        height: 40%;
+    }
+    .background{
+        height: 100%;
+    }
+    .register-container{
+        margin: auto;
+    }
 }
